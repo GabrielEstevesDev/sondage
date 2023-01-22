@@ -1,51 +1,25 @@
 window.addEventListener("load", init);
-var aliments;
-var input;
-
+var lastAlim;
+var arrayAlim;
 function init() {
-  // recupAliments();
-  input = document.getElementById("alim");
-  input.addEventListener("keyup", keyInput);
-  console.log(input);
-}
-
-function keyInput(e) {
-  console.log(this.value.length);
-  if (this.value.length >= 3) {
-    var url = "./php/recupAlim.php";
-    var data = { name: this.value };
-    $.ajax({
-      //requête web
-      async: false,
-      type: "GET",
-      data: data,
-      dataType: "json",
-      url: url,
-      success: function (retour) {
-        aliments = retour;
-        console.log(aliments);
-      },
-      error: function () {
-        alert("PB avec l'URL");
-      },
-    });
+  arrayAlim = new Array();
+  var inputSubmit = document.getElementById("submit");
+  console.log(inputSubmit);
+  inputSubmit.style.display = "none";
+  var buttonChoisir = document.getElementById("choisir");
+  buttonChoisir.addEventListener("click", ajoutAlim);
+  for (let option of browsers.options) {
+    option.onclick = function (e) {
+      input.value = option.value;
+      browsers.style.display = "none";
+      input.style.borderRadius = "5px";
+      lastAlim = e.target.id;
+    };
   }
 }
 
-function recupAliments() {
-  url = "./php/recupSQL.php";
-  $.ajax({
-    //requête web
-    async: false,
-    type: "GET",
-    dataType: "json",
-    url: url,
-    success: function (retour) {
-      aliments = retour;
-      console.log(aliments);
-    },
-    error: function () {
-      alert("PB avec l'URL");
-    },
-  });
+function ajoutAlim() {
+  var input = document.getElementById("input");
+  if (input.value.length != 0) arrayAlim.push(lastAlim);
+  console.log(arrayAlim);
 }
