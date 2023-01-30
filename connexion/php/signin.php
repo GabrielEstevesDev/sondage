@@ -42,7 +42,7 @@ if($id == NULL) {
 	
 	function verifEmail($email) {
 		require('../connectSQL.php'); //$pdo est défini dans ce fichier
-		$sql="SELECT emailExists(:mail) FROM `comptes`";
+		$sql="SELECT emailExists(:mail) FROM `utilisateurs`";
 		try {
 			$commande = $pdo->prepare($sql);
 			$commande->bindParam(':mail', $email);
