@@ -13,6 +13,8 @@
 			die(); // On arrête tout.
 		}
 		$_SESSION['resultat'] = $resultat;
+		$tabAlim=array();
+		$_SESSION['tabAlim'] = $tabAlim;
 		require("../index.tpl");
 		// $url = "../index.tpl";
 		// header("Location:" . $url) ;

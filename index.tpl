@@ -42,6 +42,9 @@
         <input id="submit" type="submit" value="">
     </form>
     <button id="choisir">Choisir</button>
+    <div id="aliments">
+
+    </div>
 </body>
 <script src="../js/datalist.js"></script>
 

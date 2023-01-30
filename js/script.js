@@ -19,7 +19,30 @@ function init() {
 }
 
 function ajoutAlim() {
-  var input = document.getElementById("input");
-  if (input.value.length != 0) arrayAlim.push(lastAlim);
-  console.log(arrayAlim);
+  var buttonChoisir = document.getElementById("choisir");
+  if (arrayAlim.length == 10) {
+    buttonChoisir.removeEventListener("click", ajoutAlim);
+    buttonChoisir.innerHTML = "ENVOYER";
+    envoyerAliments();
+    buttonChoisir.addEventListener("click", envoyerAliments);
+  } else {
+    var input = document.getElementById("input");
+    if (input.value.length != 0) arrayAlim.push(lastAlim);
+    console.log(arrayAlim);
+  }
+}
+
+function envoyerAliments() {
+  data = { array: arrayAlim };
+  $.ajax({
+    type: "POST",
+    url: "../php/envoyerAlim.php",
+    data: data,
+    success: function (response) {
+      aliments.innerHTML = response;
+    },
+    error: function () {
+      alert("PB URL");
+    },
+  });
 }

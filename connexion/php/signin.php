@@ -6,15 +6,15 @@ if(!isset($_SESSION))
 
 $id = isset($_SESSION['id'])?($_SESSION['id']):NULL;
 
-if($id == NULL) {
+/*if($id == NULL) {
 	header("Location: ../ident.php");
-}
+}*/
 
 	$login =  isset($_POST['silogin'])?($_POST['silogin']):'';
 	$email =  isset($_POST['siemail'])?($_POST['siemail']):'';
 	$mdp =  isset($_POST['simdp'])?($_POST['simdp']):'';
 
-
+	
 	if(identExists($login, $email)) {
 		$msgAcc = "Le login et/ou le mail existe déjà";
 		$_SESSION['msgAcc'] = $msgAcc;
@@ -25,14 +25,15 @@ if($id == NULL) {
 		$_SESSION['msgAcc'] = $msgAcc;
 		header("Location: ../ident.php");
 	}
-	
+	//var_dump($login );
+	//var_dump($email);
 	// IMPORTANT Rappel PDO
 	//PDOStatement::prepare() et PDOStatement::execute()
 	//pour préparer des requêtes et les exécuter qu'elles rendent OU PAS des lignes 
 	
 	function identExists($login, $email) {
-		var_dump(verifLogin($login));
-		var_dump(verifEmail($email));
+		//var_dump(verifLogin($login));
+		//var_dump(verifEmail($email));
 		if(verifLogin($login) /*|| verifEmail($email)*/) {
 			return true;
 		} else {
@@ -41,7 +42,7 @@ if($id == NULL) {
 	}
 	
 	function verifEmail($email) {
-		require('../connectSQL.php'); //$pdo est défini dans ce fichier
+		require('../../connectSQL.php'); //$pdo est défini dans ce fichier
 		$sql="SELECT emailExists(:mail) FROM `utilisateurs`";
 		try {
 			$commande = $pdo->prepare($sql);
@@ -55,7 +56,7 @@ if($id == NULL) {
 			echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
 			die();
 		}
-
+		//var_dump($resultat);
 		$param = "emailExists('" . $email . "')";
 		$int = (int)$resultat[0][$param];
 		
@@ -66,8 +67,8 @@ if($id == NULL) {
 	}
 
 	function verifLogin($login) {
-		require('../connectSQL.php'); //$pdo est défini dans ce fichier
-		$sql="SELECT loginExists(:log) FROM `comptes`";
+		require('../../connectSQL.php'); //$pdo est défini dans ce fichier
+		$sql="SELECT loginExists(:log) FROM `utilisateurs`";
 		try {
 			$commande = $pdo->prepare($sql);
 			$commande->bindParam(':log', $login);
@@ -91,7 +92,7 @@ if($id == NULL) {
 	}
 
 	function signIn($login, $email, $mdp) {
-		require('../connectSQL.php'); //$pdo est défini dans ce fichier
+		require('../../connectSQL.php'); //$pdo est défini dans ce fichier
 		$sql="CALL signIn(:log,:email,:mdp)";
 		try {
 			$commande = $pdo->prepare($sql);
