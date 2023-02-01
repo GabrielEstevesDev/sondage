@@ -8,32 +8,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="./js/srcipt.js"></script>
 </head>
 
 <body>
     <header>
         <nav id="navbar" style="position: fixed; top: 0px; left: 50%; transform: translateX(-50%);">
-        <div id="logo">
-            <img src="./img/logo beauvaisis.png" alt="Logo Beauvaisis">
-        </div>
-        <div class="menu">
-            <ul class="left">
-                <li><a href="">accueil</a></li>
-                <li><a href=""> actualités</a></li>
-                <li><a href="../tourisme/Tourisme.html">tourisme &amp; culture</a></li>
-                <li><a href="">logement &amp; études</a></li>
-            </ul>
-            <ul class="right">
-                <li><a href="https://fr-fr.facebook.com/beauvaisis/"><i class="fa-brands fa-facebook-f"></i></a></li>
-                <li><a href="https://twitter.com/agglobeauvaisis"><i class="fa-brands fa-twitter"></i></a></li>
-            </ul>
+            <div id="logo">
+                <img src="./img/logo beauvaisis.png" alt="Logo Beauvaisis">
+            </div>
+            <div class="menu">
+                <ul class="left">
+                    <li><a href="">accueil</a></li>
+                    <li><a href=""> actualités</a></li>
+                    <li><a href="../tourisme/Tourisme.html">tourisme &amp; culture</a></li>
+                    <li><a href="">logement &amp; études</a></li>
+                </ul>
+                <ul class="right">
+                    <li><a href="https://fr-fr.facebook.com/beauvaisis/"><i class="fa-brands fa-facebook-f"></i></a>
+                    </li>
+                    <li><a href="https://twitter.com/agglobeauvaisis"><i class="fa-brands fa-twitter"></i></a></li>
+                </ul>
 
-        </div>
-        <ul class="toogle">
-            <li class="ouvrir"><i class="fa-solid fa-bars"></i></li>
-            <li class="fermer"><i class="fa-solid fa-circle-xmark"></i></li>
-        </ul>
-    </nav>
+            </div>
+            <ul class="toogle">
+                <li class="ouvrir"><i class="fa-solid fa-bars"></i></li>
+                <li class="fermer"><i class="fa-solid fa-circle-xmark"></i></li>
+            </ul>
+        </nav>
     </header>
     <div class="form">
         <h1 class="Titre">Se connecter</h1>

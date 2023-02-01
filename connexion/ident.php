@@ -25,7 +25,8 @@
 	    	$msg = "Vous êtes connectés";
 			$_SESSION['id'] = $resId;
 			$_SESSION['login'] = $login;
-			$url="../php/recupAlim.php";
+
+			$url="../accueil/php/recupAlim.php";
 			header("Location:" . $url);
 		}
 	}	

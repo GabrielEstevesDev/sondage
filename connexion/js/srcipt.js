@@ -11,9 +11,20 @@ function init() {
   nav = document.getElementById("navbar");
   page = document.getElementById("page");
   header = document.querySelector("header");
+  siemail.addEventListener("keypress", verifMail);
   window.addEventListener("scroll", navPosition);
   window.addEventListener("resize", navPosition);
   toogle.addEventListener("click", navResp);
+}
+
+function verifMail() {
+  const regex =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (regex.test(siemail.value)) {
+    console.log("L'email est valide");
+  } else {
+    console.log("L'email n'est pas valide");
+  }
 }
 
 function navPosition() {

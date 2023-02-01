@@ -43,6 +43,16 @@
     </form>
     <button id="choisir">Choisir</button>
     <div id="aliments">
+       		<table >
+			<thead>
+				<tr>
+					<th>Numéro</th>
+					<th>Nom</th>
+				</tr>
+			</thead>
+			<tbody id="insert">
+			</tbody>
+		</table>
 
     </div>
 </body>

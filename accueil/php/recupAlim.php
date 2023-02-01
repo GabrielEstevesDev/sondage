@@ -1,5 +1,5 @@
 <?php
-		require('../connectSQL.php'); //$pdo est défini dans ce fichier
+		require('../../connectSQL.php'); //$pdo est défini dans ce fichier
 		$sql="SELECT * FROM `aliments`";
 		try {
 			$commande = $pdo->prepare($sql);
