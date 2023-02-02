@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 01 fév. 2023 à 11:00
--- Version du serveur : 8.0.31
--- Version de PHP : 8.0.26
+-- Hôte : 127.0.0.1
+-- Généré le : mar. 31 jan. 2023 à 10:45
+-- Version du serveur : 10.4.27-MariaDB
+-- Version de PHP : 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -25,7 +25,6 @@ DELIMITER $$
 --
 -- Procédures
 --
-DROP PROCEDURE IF EXISTS `AlimNutriScore`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `AlimNutriScore` ()  NO SQL BEGIN
 DECLARE id INT;
 DECLARE done INT DEFAULT 0;
@@ -42,7 +41,6 @@ END LOOP loop_c;
 CLOSE C;
 END$$
 
-DROP PROCEDURE IF EXISTS `NutriScoreMoyen`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `NutriScoreMoyen` ()  NO SQL BEGIN
 DECLARE VLettre CHAR(4);
 DECLARE VTotalPoint INT DEFAULT 0;
@@ -95,12 +93,10 @@ END LOOP;
 CLOSE C;
 END$$
 
-DROP PROCEDURE IF EXISTS `signIn`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `signIn` (IN `plogin` VARCHAR(16), IN `pmail` VARCHAR(64), IN `mdp` VARCHAR(128))  NO SQL BEGIN
 	INSERT INTO utilisateurs (login,email,mdphash) VALUES (plogin, pmail, MD5(mdp));
 END$$
 
-DROP PROCEDURE IF EXISTS `test`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `test` ()  NO SQL BEGIN
 DECLARE VLettre VARCHAR(4);
 DECLARE res INT;
@@ -143,12 +139,10 @@ END LOOP loop_c;
 CLOSE C;
 END$$
 
-DROP PROCEDURE IF EXISTS `updateMail`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `updateMail` (IN `pid` INT(11), IN `fmail` VARCHAR(64))  NO SQL BEGIN
 	UPDATE utilisateurs SET email = fmail WHERE id = pid;
 END$$
 
-DROP PROCEDURE IF EXISTS `updateMdp`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `updateMdp` (IN `pid` INT, IN `mdp` VARCHAR(128))  NO SQL BEGIN
 	UPDATE utilisateurs SET mdphash = MD5(mdp) WHERE id = pid;
 END$$
@@ -156,7 +150,6 @@ END$$
 --
 -- Fonctions
 --
-DROP FUNCTION IF EXISTS `emailExists`$$
 CREATE DEFINER=`root`@`localhost` FUNCTION `emailExists` (`fmail` VARCHAR(64)) RETURNS TINYINT(1) NO SQL BEGIN
 	DECLARE temp INTEGER;
     SELECT id INTO temp FROM utilisateurs WHERE email = fmail;
@@ -168,15 +161,13 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `emailExists` (`fmail` VARCHAR(64)) R
     END IF;
 END$$
 
-DROP FUNCTION IF EXISTS `getIdByLogin`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `getIdByLogin` (`flogin` VARCHAR(64)) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `getIdByLogin` (`flogin` VARCHAR(64)) RETURNS INT(11) NO SQL BEGIN
 	DECLARE temp INTEGER;
     SELECT id INTO temp FROM utilisateurs WHERE (login = flogin OR email = flogin);
     
     RETURN temp;
 END$$
 
-DROP FUNCTION IF EXISTS `LettreNutriScore`$$
 CREATE DEFINER=`root`@`localhost` FUNCTION `LettreNutriScore` (`alim_code_` INT(11)) RETURNS VARCHAR(11) CHARSET utf8mb4 COLLATE utf8mb4_general_ci NO SQL BEGIN
 DECLARE VCategorie VARCHAR(100);
 DECLARE VLettreNutriScore VARCHAR(10);
@@ -214,7 +205,6 @@ END IF;
 RETURN VLettreNutriScore;
 END$$
 
-DROP FUNCTION IF EXISTS `LettreNutriScore10`$$
 CREATE DEFINER=`root`@`localhost` FUNCTION `LettreNutriScore10` (`alim_code_` INT(11)) RETURNS VARCHAR(11) CHARSET utf8mb4 COLLATE utf8mb4_general_ci NO SQL BEGIN
 DECLARE VCategorie INTEGER;
 DECLARE VLettreNutriScore VARCHAR(4);
@@ -254,7 +244,6 @@ END IF;
 RETURN VLettreNutriScore;
 END$$
 
-DROP FUNCTION IF EXISTS `LettreSondage`$$
 CREATE DEFINER=`root`@`localhost` FUNCTION `LettreSondage` (`Points` INT(11)) RETURNS VARCHAR(11) CHARSET utf8mb4 COLLATE utf8mb4_general_ci NO SQL BEGIN
 DECLARE VPoint INTEGER;
 SET VPoint =  ROUND(Points/10);
@@ -277,7 +266,6 @@ END IF;
 END IF;
 END$$
 
-DROP FUNCTION IF EXISTS `loginExists`$$
 CREATE DEFINER=`root`@`localhost` FUNCTION `loginExists` (`flogin` VARCHAR(16)) RETURNS TINYINT(1) NO SQL BEGIN
 	DECLARE temp INTEGER;
     SELECT id INTO temp FROM utilisateurs WHERE login = flogin;
@@ -289,8 +277,7 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `loginExists` (`flogin` VARCHAR(16)) 
     END IF;
 END$$
 
-DROP FUNCTION IF EXISTS `logUser`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `logUser` (`flogin` VARCHAR(64), `fmdp` VARCHAR(128)) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `logUser` (`flogin` VARCHAR(64), `fmdp` VARCHAR(128)) RETURNS INT(11) NO SQL BEGIN
 	DECLARE temp INTEGER;
     DECLARE mdp VARBINARY(128);
     SET mdp = MD5(fmdp);
@@ -303,8 +290,7 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `logUser` (`flogin` VARCHAR(64), `fmd
     END IF;
 END$$
 
-DROP FUNCTION IF EXISTS `NutriScore10`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `NutriScore10` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN 
+CREATE DEFINER=`root`@`localhost` FUNCTION `NutriScore10` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN 
 DECLARE VCategorie INTEGER;
 DECLARE VNutriScore INTEGER;
 DECLARE VCategorieBoisson INTEGER;
@@ -326,8 +312,7 @@ END IF;
 RETURN NULL;
 END$$
 
-DROP FUNCTION IF EXISTS `NutriScore5`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `NutriScore5` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN 
+CREATE DEFINER=`root`@`localhost` FUNCTION `NutriScore5` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN 
 DECLARE VCategorie VARCHAR(100);
 DECLARE VNutriScore INT; 
 SELECT alim_grp_nom_fr INTO VCategorie FROM ALIMENTS WHERE alim_code=alim_code_;
@@ -342,8 +327,7 @@ END IF;
 RETURN VNutriScore;
 END$$
 
-DROP FUNCTION IF EXISTS `NutriScoreAutre`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `NutriScoreAutre` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `NutriScoreAutre` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN
 DECLARE VPositifs INT;
 DECLARE VNegatifs INT;
 SET VPositifs = PointEnergie(alim_code_);
@@ -355,8 +339,7 @@ SET VNegatifs = VNegatifs + PointFIbres(alim_code_);
 RETURN VPositifs - VNegatifs;
 END$$
 
-DROP FUNCTION IF EXISTS `NutriScoreBoisson`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `NutriScoreBoisson` (`alim_code_` INT) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `NutriScoreBoisson` (`alim_code_` INT) RETURNS INT(11) NO SQL BEGIN
 DECLARE VPositifs INT;
 DECLARE VNegatifs INT;
 SET VPositifs = PointEnergieBoisson(alim_code_);
@@ -366,8 +349,7 @@ SET VNegatifs = VNegatifs + PointFIbres(alim_code_);
 RETURN  VPositifs - VNegatifs;
 END$$
 
-DROP FUNCTION IF EXISTS `NutriScoreMatièresGrasses`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `NutriScoreMatièresGrasses` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `NutriScoreMatièresGrasses` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN
 	DECLARE VPositifs INT;
 DECLARE VNegatifs INT;
 SET VPositifs = VPositifs + PointGraisses(alim_code_);
@@ -376,8 +358,7 @@ SET VNegatifs = VNegatifs + PointFibres(alim_code_);
 RETURN VPositifs - VNegatifs;
 END$$
 
-DROP FUNCTION IF EXISTS `PointAutre`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `PointAutre` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN 
+CREATE DEFINER=`root`@`localhost` FUNCTION `PointAutre` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN 
 DECLARE VPositifs INTEGER;
 DECLARE VNegatifs INTEGER;
 SET VPositifs = PointEnergie(alim_code_);
@@ -389,8 +370,7 @@ SET VNegatifs = VNegatifs + PointFibres(alim_code_);
 return VPositifs - VNegatifs;
 END$$
 
-DROP FUNCTION IF EXISTS `PointBoisson`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `PointBoisson` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN 
+CREATE DEFINER=`root`@`localhost` FUNCTION `PointBoisson` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN 
 DECLARE VPositifs INTEGER;
 DECLARE VNegatifs INTEGER;
 SET VPositifs = PointEnergieBoisson(alim_code_);
@@ -400,8 +380,7 @@ SET VNegatifs = VNegatifs + PointFibres(alim_code_);
 return  VPositifs - VNegatifs;
 END$$
 
-DROP FUNCTION IF EXISTS `PointEnergie`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `PointEnergie` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `PointEnergie` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN
 DECLARE VEnergie INT;
 DECLARE VPoints INT;
 DECLARE Valeur INT;
@@ -424,8 +403,7 @@ END WHILE;
 RETURN 10;
 END$$
 
-DROP FUNCTION IF EXISTS `PointEnergieBoisson`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `PointEnergieBoisson` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `PointEnergieBoisson` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN
 DECLARE VEnergie INT;
 DECLARE VPoints INT;
 DECLARE Valeur INT;
@@ -448,8 +426,7 @@ END WHILE;
 RETURN 10;
 END$$
 
-DROP FUNCTION IF EXISTS `PointFibres`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `PointFibres` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `PointFibres` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN
 DECLARE VFibres INT;
 DECLARE VPoints INT;
 DECLARE Valeur INT;
@@ -472,8 +449,7 @@ END WHILE;
 RETURN 5;
 END$$
 
-DROP FUNCTION IF EXISTS `PointGraisses`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `PointGraisses` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `PointGraisses` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN
 DECLARE VGraisses INT;
 DECLARE VPoints INT;
 DECLARE Valeur INT;
@@ -496,8 +472,7 @@ END WHILE;
 RETURN 10;
 END$$
 
-DROP FUNCTION IF EXISTS `PointLettre`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `PointLettre` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `PointLettre` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN
 DECLARE VNutriScore VARCHAR(4);
 SELECT NutriScore INTO VNutriScore FROM ScoreAliments WHERE alim_code = alim_code_;
 IF VNutriScore  LIKE '%A%' THEN
@@ -519,8 +494,7 @@ END IF;
 END IF;
 END$$
 
-DROP FUNCTION IF EXISTS `PointMatieresGrasse`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `PointMatieresGrasse` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN 
+CREATE DEFINER=`root`@`localhost` FUNCTION `PointMatieresGrasse` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN 
 DECLARE VPositifs INTEGER;
 DECLARE VNegatifs INTEGER;
 SET VPositifs = PointGraisses(alim_code_);
@@ -529,8 +503,7 @@ SET VNegatifs = VNegatifs + PointFibres(alim_code_);
 return VPositifs - VNegatifs;
 END$$
 
-DROP FUNCTION IF EXISTS `PointProteine`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `PointProteine` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `PointProteine` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN
 DECLARE VProteines INT;
 DECLARE VPoints INT;
 DECLARE Valeur INT;
@@ -553,8 +526,7 @@ END WHILE;
 RETURN 5;
 END$$
 
-DROP FUNCTION IF EXISTS `PointScoreSante`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `PointScoreSante` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `PointScoreSante` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN
 DECLARE VNutriScore VARCHAR(4);
 SELECT NutriScore INTO VNutriScore FROM ScoreAliments WHERE Alim_code = alim_code_;
 IF VNutriScore  LIKE '%A%' THEN
@@ -576,8 +548,7 @@ END IF;
 END IF;
 END$$
 
-DROP FUNCTION IF EXISTS `PointSodium`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `PointSodium` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN 
+CREATE DEFINER=`root`@`localhost` FUNCTION `PointSodium` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN 
 DECLARE VPoints INT;
 DECLARE VSodium INT;
 DECLARE Valeur INT;
@@ -598,8 +569,7 @@ END WHILE;
 RETURN 10;
 END$$
 
-DROP FUNCTION IF EXISTS `PointSucres`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `PointSucres` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `PointSucres` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN
 DECLARE VSucres INT;
 DECLARE VPoints INT;
 DECLARE Valeur INT ;
@@ -622,8 +592,7 @@ END WHILE;
 RETURN 10;
 END$$
 
-DROP FUNCTION IF EXISTS `PointSucresBoisson`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `PointSucresBoisson` (`alim_code_` INT(11)) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `PointSucresBoisson` (`alim_code_` INT(11)) RETURNS INT(11) NO SQL BEGIN
 DECLARE VSucres INT;
 DECLARE VPoints INT;
 DECLARE Valeur INT;
@@ -646,8 +615,7 @@ END WHILE;
 RETURN 10;
 END$$
 
-DROP FUNCTION IF EXISTS `samePassword`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `samePassword` (`fid` INT(11), `mdp` VARCHAR(128)) RETURNS INT NO SQL BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `samePassword` (`fid` INT(11), `mdp` VARCHAR(128)) RETURNS INT(1) NO SQL BEGIN
 	DECLARE temp INTEGER;
     SELECT id INTO temp FROM utilisateurs WHERE id = fid AND mdphash = MD5(mdp);
     
@@ -658,7 +626,6 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `samePassword` (`fid` INT(11), `mdp` 
     END IF;
 END$$
 
-DROP FUNCTION IF EXISTS `TestLettre`$$
 CREATE DEFINER=`root`@`localhost` FUNCTION `TestLettre` (`Lettre` VARCHAR(4)) RETURNS VARCHAR(4) CHARSET utf8mb4 COLLATE utf8mb4_general_ci  RETURN Lettre$$
 
 DELIMITER ;
@@ -669,16 +636,15 @@ DELIMITER ;
 -- Structure de la table `aliments`
 --
 
-DROP TABLE IF EXISTS `aliments`;
-CREATE TABLE IF NOT EXISTS `aliments` (
-  `alim_code` int DEFAULT NULL,
-  `alim_nom_fr` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `alim_grp_code` int DEFAULT NULL,
-  `alim_grp_nom_fr` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `alim_ssgrp_code` int DEFAULT NULL,
-  `alim_ssgrp_nom_fr` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `alim_ssssgrp_code` int DEFAULT NULL,
-  `alim_ssssgrp_nom_fr` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+CREATE TABLE `aliments` (
+  `alim_code` int(11) DEFAULT NULL,
+  `alim_nom_fr` varchar(300) DEFAULT NULL,
+  `alim_grp_code` int(11) DEFAULT NULL,
+  `alim_grp_nom_fr` varchar(300) DEFAULT NULL,
+  `alim_ssgrp_code` int(11) DEFAULT NULL,
+  `alim_ssgrp_nom_fr` varchar(300) DEFAULT NULL,
+  `alim_ssssgrp_code` int(11) DEFAULT NULL,
+  `alim_ssssgrp_nom_fr` varchar(300) DEFAULT NULL,
   `EnergieKj` float DEFAULT NULL,
   `EnergieCal` float DEFAULT NULL,
   `EnergieKjJones` float DEFAULT NULL,
@@ -3948,10 +3914,9 @@ INSERT INTO `aliments` (`alim_code`, `alim_nom_fr`, `alim_grp_code`, `alim_grp_n
 -- Structure de la table `scorealiments`
 --
 
-DROP TABLE IF EXISTS `scorealiments`;
-CREATE TABLE IF NOT EXISTS `scorealiments` (
-  `Alim_code` int DEFAULT NULL,
-  `NutriScore` varchar(4) COLLATE utf8mb4_general_ci DEFAULT NULL
+CREATE TABLE `scorealiments` (
+  `Alim_code` int(11) DEFAULT NULL,
+  `NutriScore` varchar(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -7135,28 +7100,26 @@ INSERT INTO `scorealiments` (`Alim_code`, `NutriScore`) VALUES
 -- Structure de la table `sondage`
 --
 
-DROP TABLE IF EXISTS `sondage`;
-CREATE TABLE IF NOT EXISTS `sondage` (
-  `Administre` int NOT NULL,
-  `Nom` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Prenom` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Adresse` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `CodePostal` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Ville` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Telephone` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Aliment1` int DEFAULT NULL,
-  `Aliment2` int DEFAULT NULL,
-  `Aliment3` int DEFAULT NULL,
-  `Aliment4` int DEFAULT NULL,
-  `Aliment5` int DEFAULT NULL,
-  `Aliment6` int DEFAULT NULL,
-  `Aliment7` int DEFAULT NULL,
-  `Aliment8` int DEFAULT NULL,
-  `Aliment9` int DEFAULT NULL,
-  `Aliment10` int DEFAULT NULL,
-  `NutriScore` varchar(4) COLLATE utf8mb4_general_ci NOT NULL,
-  `ScoreSante` int NOT NULL,
-  PRIMARY KEY (`Administre`)
+CREATE TABLE `sondage` (
+  `Administre` int(11) DEFAULT NULL,
+  `Nom` varchar(100) DEFAULT NULL,
+  `Prenom` varchar(100) DEFAULT NULL,
+  `Adresse` varchar(100) DEFAULT NULL,
+  `CodePostal` varchar(50) DEFAULT NULL,
+  `Ville` varchar(50) DEFAULT NULL,
+  `Telephone` varchar(20) DEFAULT NULL,
+  `Aliment1` int(11) DEFAULT NULL,
+  `Aliment2` int(11) DEFAULT NULL,
+  `Aliment3` int(11) DEFAULT NULL,
+  `Aliment4` int(11) DEFAULT NULL,
+  `Aliment5` int(11) DEFAULT NULL,
+  `Aliment6` int(11) DEFAULT NULL,
+  `Aliment7` int(11) DEFAULT NULL,
+  `Aliment8` int(11) DEFAULT NULL,
+  `Aliment9` int(11) DEFAULT NULL,
+  `Aliment10` int(11) DEFAULT NULL,
+  `NutriScore` varchar(4) NOT NULL,
+  `ScoreSante` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -7164,8 +7127,7 @@ CREATE TABLE IF NOT EXISTS `sondage` (
 --
 
 INSERT INTO `sondage` (`Administre`, `Nom`, `Prenom`, `Adresse`, `CodePostal`, `Ville`, `Telephone`, `Aliment1`, `Aliment2`, `Aliment3`, `Aliment4`, `Aliment5`, `Aliment6`, `Aliment7`, `Aliment8`, `Aliment9`, `Aliment10`, `NutriScore`, `ScoreSante`) VALUES
-(6, 'gabriel', NULL, NULL, NULL, NULL, NULL, 4041, 4041, 4041, 4041, 4041, 4041, 4041, 4041, 4041, 4041, '', 0),
-(10, 'gabriel', NULL, NULL, NULL, NULL, NULL, 4041, 4041, 4041, 4041, 4041, 4041, 4041, 4041, 4041, 4041, '', 0);
+(1, 'Bamling', 'Illustrée', '80413 Norway Maple Junction', '366526', 'Shalazhi', '5902798484', 25107, 25186, 2034, 13021, 12722, 23940, 26233, 20077, 25955, 4041, 'NULL', 50);
 
 -- --------------------------------------------------------
 
@@ -7173,16 +7135,12 @@ INSERT INTO `sondage` (`Administre`, `Nom`, `Prenom`, `Adresse`, `CodePostal`, `
 -- Structure de la table `utilisateurs`
 --
 
-DROP TABLE IF EXISTS `utilisateurs`;
-CREATE TABLE IF NOT EXISTS `utilisateurs` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `login` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(60) COLLATE utf8mb4_general_ci NOT NULL,
-  `mdphash` varbinary(128) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `login` (`login`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `utilisateurs` (
+  `id` int(11) NOT NULL,
+  `login` varchar(16) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `mdphash` varbinary(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `utilisateurs`
@@ -7191,18 +7149,29 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 INSERT INTO `utilisateurs` (`id`, `login`, `email`, `mdphash`) VALUES
 (6, 'louis', 'louis@iut.fr', 0x3737376361646332383062623233656265613236386465643938333338633339),
 (9, 'yvann', 'yvan@iut.fr', 0x3134633563653265393932396364343539666265613037643033393138643130),
-(10, 'gabriel', 'gabriel@iut.fr', 0x3634373433316235636135356230346664663363326663653331656631393135),
-(11, 'gabriel1', 'mr.estevesgabriel@hotmail.fr', 0x3634373433316235636135356230346664663363326663653331656631393135);
+(10, 'gabriel', 'gabriel@iut.fr', 0x3634373433316235636135356230346664663363326663653331656631393135);
 
 --
--- Contraintes pour les tables déchargées
+-- Index pour les tables déchargées
 --
 
 --
--- Contraintes pour la table `sondage`
+-- Index pour la table `utilisateurs`
 --
-ALTER TABLE `sondage`
-  ADD CONSTRAINT `sondage_ibfk_1` FOREIGN KEY (`Administre`) REFERENCES `utilisateurs` (`id`);
+ALTER TABLE `utilisateurs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `login` (`login`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `utilisateurs`
+--
+ALTER TABLE `utilisateurs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

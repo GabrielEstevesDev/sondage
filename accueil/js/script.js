@@ -1,9 +1,9 @@
 window.addEventListener("load", init);
-var lastCodeAlim;
-var arrayAlim;
-var lastNomAlim;
+var lastObjAlim;
+var tabAlim;
 function init() {
   arrayAlim = new Array();
+  tabAlim = new Array();
   var inputSubmit = document.getElementById("submit");
   console.log(inputSubmit);
   inputSubmit.style.display = "none";
@@ -11,40 +11,61 @@ function init() {
   buttonChoisir.addEventListener("click", ajoutAlim);
   for (let option of browsers.options) {
     option.onclick = function (e) {
-      input.value = option.textContent;
       browsers.style.display = "none";
       input.style.borderRadius = "5px";
+      lastObjAlim = { code: e.target.id, nom: option.textContent };
+      input.value = option.textContent;
       lastAlim = e.target.id;
       lastNomAlim = option.textContent;
     };
   }
 }
 
-function ajoutAlim() {
+function ajoutAlim(e) {
   var buttonChoisir = document.getElementById("choisir");
   var input = document.getElementById("input");
   if (input.value.length != 0) {
-    arrayAlim.push(lastAlim);
+    tabAlim.push(lastObjAlim);
     afficherAlimChoisi();
-    if (arrayAlim.length == 10) {
+    if (tabAlim.length == 10) {
       buttonChoisir.removeEventListener("click", ajoutAlim);
       buttonChoisir.innerHTML = "ENVOYER";
-      envoyerAliments();
       buttonChoisir.addEventListener("click", envoyerAliments);
     }
   }
-  console.log(arrayAlim);
+  console.log(tabAlim);
 }
 
 function afficherAlimChoisi() {
-  var numAlim = arrayAlim.length;
-  insert.innerHTML =
-    insert.innerHTML +
-    "<tr><td>" +
-    numAlim +
-    "</td><td>" +
-    lastNomAlim +
-    "</td> </tr>";
+  insert.innerHTML = "";
+  for (let [i, choix] of tabAlim.entries()) {
+    var number = i + 1;
+    insert.innerHTML =
+      insert.innerHTML +
+      "<tr> <td>" +
+      number +
+      "</td><td>" +
+      choix["nom"] +
+      "</td><td><button id=" +
+      i +
+      " class=supOption>Supprimer</button></td> </tr>";
+  }
+  for (let choix of document.getElementsByClassName("supOption")) {
+    choix.addEventListener("click", supChoix);
+  }
+}
+
+function supChoix(e) {
+  var index = e.target.id;
+  if (index > -1) {
+    tabAlim.splice(index, 1);
+  }
+  afficherAlimChoisi();
+  var buttonChoisir = document.getElementById("choisir");
+  if (tabAlim.length < 10) {
+    buttonChoisir.innerHTML = "choisir";
+    buttonChoisir.addEventListener("click", ajoutAlim);
+  }
 }
 function envoyerAliments() {
   data = { array: arrayAlim };

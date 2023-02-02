@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdfmake@0.1.67/build/pdfmake.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdfmake@0.1.67/build/vfs_fonts.js"></script>
     <script src="../js/script.js"></script>
 </head>
 
@@ -43,19 +45,21 @@
     </form>
     <button id="choisir">Choisir</button>
     <div id="aliments">
-       		<table >
-			<thead>
-				<tr>
-					<th>Numéro</th>
-					<th>Nom</th>
-				</tr>
-			</thead>
-			<tbody id="insert">
-			</tbody>
-		</table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Nom</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody id="insert">
+            </tbody>
+        </table>
 
     </div>
 </body>
 <script src="../js/datalist.js"></script>
+<!-- <script src="../js/pdf.js"></script> -->
 
 </html>
