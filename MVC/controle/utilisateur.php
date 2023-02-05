@@ -13,10 +13,9 @@ function accueil(){
         $url = "./?controle=aliment&action=accueil";
         header("Location:". $url);
     }
-    else
+    else {
         require("./vue/utilisateur/resultat.tpl");
-    
-
+    }
 }
 
 

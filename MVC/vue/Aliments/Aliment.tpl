@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="./vue/Aliments/datalist.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/pdfmake@0.1.67/build/pdfmake.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pdfmake@0.1.67/build/vfs_fonts.js"></script>
     <script src="./vue/Aliments/js/script.js"></script>
@@ -19,9 +19,9 @@
 <body id="body">
     <?php require("./vue/navbar/navbar.tpl"); ?>
     <div id="page">
-    <form>
-    <input type=button name=print value="Print" onClick="window.print()">
-</form>
+        <form>
+            <input type=button name=print value="Print" onClick="window.print()">
+        </form>
         <form>
             <fieldset>
                 <legend>
@@ -29,13 +29,13 @@
                 </legend>
                 <label>Select Browser</label>
                 <input autocomplete="off" role="combobox" list="" id="input" name="browsers"
-                    placeholder="Select your fav browser">
+                placeholder="Select your fav browser">
                 <!-- Its important that you keep list attribute empty to hide the default dropdown icon and the browser's default datalist -->
 
                 <datalist id="browsers" role="listbox">
                     <?php 
                         foreach($resultat as $value){
-                        echo ("<option id=$value[alim_code] value=$value[alim_nom_fr]>$value[alim_nom_fr]</option>");
+                            echo ("<option id=$value[alim_code] value=$value[alim_nom_fr]>$value[alim_nom_fr]</option>");
                         }
                     ?>
                 </datalist>
@@ -43,26 +43,26 @@
                 <br>
                 <label for="pwd"> Password </label>
                 <input id="pwd" type="password">
-                 -->
-            </fieldset>
-            <input id="submit" type="submit" value="">
-        </form>
-        <button id="choisir">Choisir</button>
-        <div id="aliments">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Numéro</th>
-                        <th>Nom</th>
-                        <th>Supprimer</th>
-                    </tr>
-                </thead>
-                <tbody id="insert">
-                </tbody>
-            </table>
-
-        </div>
+            -->
+        </fieldset>
+        <input id="submit" type="submit" value="">
+    </form>
+    <button id="choisir">Choisir</button>
+    <div id="aliments">
+        <table>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Nom</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody id="insert">
+            </tbody>
+        </table>
     </div>
+    <?php require("./vue/charts/hist_chart.tpl"); ?>
+</div>
 </body>
 <script src="./vue/Aliments/js/datalist.js"></script>
 <!-- <script src="./vue/Aliments/js/pdf.js"></script> -->
