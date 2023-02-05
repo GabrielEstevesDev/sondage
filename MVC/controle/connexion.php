@@ -21,7 +21,7 @@
         else { 
             $msg = "Vous êtes connectés";
             $_SESSION['login'] = $login;
-            $url="./index.php?controle=aliment&action=accueil"; //redirection accueil
+            $url="./index.php?controle=utilisateur&action=accueil"; //redirection accueil
             header("Location:" . $url);
         }
     }	

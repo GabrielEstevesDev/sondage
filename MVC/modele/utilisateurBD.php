@@ -96,4 +96,23 @@
 			die();
 		}
 	}
+
+	function existSondage($id){
+		require('./modele/connectSQL.php'); //$pdo est défini dans ce fichier
+		$sql="SELECT * FROM `sondage` WHERE Administre=:id";
+		try {
+			$commande = $pdo->prepare($sql);
+			$commande->bindParam(':id', $id);
+			$bool = $commande->execute();
+			if ($bool) {
+				$resultat = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
+			}
+		}
+		catch (PDOException $e) {
+			echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
+			die(); // On arrête tout.
+		}
+		if(count($resultat)!=0) return true; //a saisi
+		return false; // n'a pas saisi
+	}
 ?>

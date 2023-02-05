@@ -13,9 +13,8 @@ function recupAlim(){
 		echo "Echec de select";
 		die(); // On arrête tout.
 	}
-	$_SESSION['resultat'] = $resultat;
-		$tabAlim=array();
-		$_SESSION['tabAlim'] = $tabAlim;
+	return $resultat;
+	
 }
 		
 	

@@ -2,10 +2,9 @@ window.addEventListener("load", init);
 var lastObjAlim;
 var tabAlim;
 function init() {
-  arrayAlim = new Array();
   tabAlim = new Array();
   var inputSubmit = document.getElementById("submit");
-  console.log(inputSubmit);
+  window.addEventListener("click", fermerListe);
   inputSubmit.style.display = "none";
   var buttonChoisir = document.getElementById("choisir");
   buttonChoisir.addEventListener("click", ajoutAlim);
@@ -15,10 +14,13 @@ function init() {
       input.style.borderRadius = "5px";
       lastObjAlim = { code: e.target.id, nom: option.textContent };
       input.value = option.textContent;
-      lastAlim = e.target.id;
-      lastNomAlim = option.textContent;
     };
   }
+}
+
+function fermerListe(e) {
+  if (e.target.id != "input" && e.target.tagName != "option")
+    browsers.style.display = "none";
 }
 
 function ajoutAlim(e) {
@@ -68,15 +70,17 @@ function supChoix(e) {
   }
 }
 function envoyerAliments() {
-  data = { array: arrayAlim ,controle:"aliment",action:"envoyer10alim"};
+  // data = { array: arrayAlim, controle: "aliment", action: "envoyer10alim" };
+  data = { array: tabAlim };
   $.ajax({
     type: "POST",
-    url: "./index.php",
+    url: "./index.php?controle=aliment&action=envoyer10alim",
     data: data,
-    success: function (response) {},
+    success: function (response) {
+      console.log(response);
+    },
     error: function () {
       alert("PB URL");
     },
   });
-
 }
