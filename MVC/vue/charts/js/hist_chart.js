@@ -41,17 +41,9 @@ function getMax() {
 }
 
 function setPercent() {
-    $("div.cat1").attr('data-percent', Math.round((categories[1]/nbVal)*100)+'%');
-    $("div.cat2").attr('data-percent', Math.round((categories[2]/nbVal)*100)+'%');
-    $("div.cat3").attr('data-percent', Math.round((categories[3]/nbVal)*100)+'%');
-    $("div.cat4").attr('data-percent', Math.round((categories[4]/nbVal)*100)+'%');
-    $("div.cat5").attr('data-percent', Math.round((categories[5]/nbVal)*100)+'%');
-    $("div.cat6").attr('data-percent', Math.round((categories[6]/nbVal)*100)+'%');
-    $("div.cat7").attr('data-percent', Math.round((categories[7]/nbVal)*100)+'%');
-    $("div.cat8").attr('data-percent', Math.round((categories[8]/nbVal)*100)+'%');
-    $("div.cat9").attr('data-percent', Math.round((categories[9]/nbVal)*100)+'%');
-    $("div.cat10").attr('data-percent', Math.round((categories[10]/nbVal)*100)+'%');
-    $("div.cat11").attr('data-percent', Math.round((categories[11]/nbVal)*100)+'%');
+    for (var i = 1; i < 12; i++) {
+        $("div.cat"+i).attr('data-percent', Math.round((categories[i]/nbVal)*100)+'%');
+    }
 }
 
 function anim() {

@@ -36,6 +36,10 @@
                 </div>
             </div>
         </div>
+
+        <div id="choix">
+            <?php require("./vue/utilisateur/choix.tpl"); ?>
+        </div>
         <?php require("./vue/charts/hist_chart.tpl"); ?>
     </div>
 </body>

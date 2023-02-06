@@ -43,7 +43,6 @@
             <div><?php echo $msgAcc;?></div>
         </div>
     </div>
-
 </body>
 
 </html>

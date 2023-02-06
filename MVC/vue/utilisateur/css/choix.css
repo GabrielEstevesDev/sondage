@@ -1,0 +1,18 @@
+.div-choix {
+	margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: fit-content;
+    background: #3d3d3d;
+}
+
+.titre {
+    color: white;
+    padding-top: 10px;
+}
+
+.choix {
+    color: white;
+    padding: 5px 20px;
+	display: inline-block;
+}
