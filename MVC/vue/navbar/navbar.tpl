@@ -5,10 +5,12 @@
     </div>
     <div class="menu">
         <ul class="left">
-            <li><a href="../accueil/index.html">accueil</a></li>
-            <li><a href="../leo/Actualites.html">actualités</a></li>
-            <li><a href="../tourisme/Tourisme.html">tourisme & culture</a></li>
-            <li><a href="../yvann/index.html">logement & études</a></li>
+            <li><a href="../../accueil/index.html">accueil</a></li>
+            <li><a href="../../leo/Actualites.html">actualités</a></li>
+            <li><a href="../../tourisme/Tourisme.html">tourisme & culture</a></li>
+            <li><a href="../../yvann/index.html">logement & études</a></li>
+            <li><a href="./index.php?action=accueil&controle=utilisateur">sondage</a></li>
+            <li><a href="./index.php">connexion</a></li>
         </ul>
         <ul class="right">
             <li><a href="https://fr-fr.facebook.com/beauvaisis/" target="_blank"><i

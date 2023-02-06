@@ -10,15 +10,18 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="./vue/utilisateur/css/hist_chart.css">
     <script src="./vue/utilisateur/js/hist_chart.js"></script>
-    
+
     <link rel="stylesheet" href="./vue/utilisateur/css/pie_chart.css">
     <script src="./vue/utilisateur/js/pie_chart.js"></script>
 </head>
+
 <body>
     <header>
         <?php require("./vue/navbar/navbar.tpl"); ?>
     </header>
     <div class="page">
+        <a href="./index.php?controle=utilisateur&action=accueil&resaisir=true">
+            <button>Refaire le sondage</button></a>
         <div class="wrapper">
             <div class="pie-charts">
                 <div class="pieID--micro-skills pie-chart--wrapper">
@@ -43,4 +46,5 @@
         <?php require("./vue/charts/hist_chart.tpl"); ?>
     </div>
 </body>
+
 </html>

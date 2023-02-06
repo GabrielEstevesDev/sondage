@@ -3,7 +3,6 @@
 		$sql="SELECT Aliment1,Aliment2,Aliment3,Aliment4,Aliment5,Aliment6,Aliment7,Aliment8,Aliment9,Aliment10 FROM `sondage`";
 		try {
 			$commande = $pdo->prepare($sql);
-			$commande->bindParam(':id', $id);
 			$bool = $commande->execute();
 			if ($bool) {
 				$identifiants = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements

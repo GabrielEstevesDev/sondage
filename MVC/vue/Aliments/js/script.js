@@ -76,8 +76,9 @@ function envoyerAliments() {
     type: "POST",
     url: "./index.php?controle=aliment&action=envoyer10alim",
     data: data,
-    success: function (response) {
-      console.log(response);
+    success: function () {
+      document.location.href =
+        "./index.php?controle=utilisateur&action=accueil";
     },
     error: function () {
       alert("PB URL");
