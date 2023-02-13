@@ -21,7 +21,7 @@
     </header>
     <div class="page">
         <a href="./index.php?controle=utilisateur&action=accueil&resaisir=true">
-            <button>Refaire le sondage</button></a>
+        <button>Refaire le sondage</button></a>
         <div class="wrapper">
             <div class="pie-charts">
                 <div class="pieID--micro-skills pie-chart--wrapper">
@@ -43,6 +43,10 @@
         <div id="choix">
             <?php require("./vue/utilisateur/choix.tpl"); ?>
         </div>
+        <div>
+            <?php require("./vue/utilisateur/scores.tpl"); ?>
+        </div>
+
         <?php require("./vue/charts/hist_chart.tpl"); ?>
     </div>
 </body>
