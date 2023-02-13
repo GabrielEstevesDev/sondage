@@ -1,7 +1,9 @@
 body {
   background: url(../img/bg.png) fixed center/cover;
 }
-
+::after,::before{
+  content: none;
+}
 li {
   list-style: none;
 }
@@ -20,7 +22,22 @@ li, a, i {
   margin: 0 auto;
   background: white;
 }
+#connected{
+  position: relative;
+}
+#connected {
+  position: relative;
+}
+#deconnexion{
+  bottom: -74px;
+  left: 0;
+  position: absolute;
+  display: none;
+}
+#connected:hover #deconnexion{
 
+ display: block;
+}
 @font-face {
     font-family: "InterB";
     src: url(./fonts/Inter-Bold.ttf);
