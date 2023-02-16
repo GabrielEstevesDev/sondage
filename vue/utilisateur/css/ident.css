@@ -40,17 +40,27 @@ progress{
     padding-bottom: 20px;
     text-transform: uppercase;
 }
-#simdp{
-  margin: 0 auto;
+#labelmdp{
   position: relative;
-
 }
-/*#mdpvue{
-  position: relative;
-}*/
-
-#imdmdp{
+#labelmdp .password-icon {
+  display: flex;
+  align-items: center;
   position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 20px;
+  color: black;
+  transition: all 0.2s;
+}
+label .password-icon:hover {
+  cursor: pointer;
+  color: #ff4754;
+}
+
+label .password-icon .fa-eye-slash {
+  display: none;
 }
 a{
     text-decoration: none;

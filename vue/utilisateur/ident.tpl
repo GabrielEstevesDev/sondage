@@ -38,21 +38,36 @@
                 <label for="siemail">Email</label><br>
                 <input type="email" id="siemail" name="siemail" value="" required><br>
                 <div id="emailmsg"></div><br>
-                <label for="simdp">Mot de passe</label><br>
+
                 <div id="mdpvue">
-                    <input type="password" id="simdptpass" name="simdp" value="" required>
-                    <img src="./vue/img/iconsserrureprivée.png" alt="" id="imdmdp">
+                    <!-- ICON SCRIPT -->
+                    <label id="labelmdp">
+                        <input type="password" id="inputmdp" name="simdp" placeholder="Mot de passe">
+                        <div class="password-icon">
+                            <i class="fa-regular fa-eye"></i>
+                            <i class="fa-regular fa-eye-slash"></i>
+                        </div>
+                    </label>
+
+                    <!-- ICON SCRIPT -->
+
+
                 </div>
-                
+
                 <div id="mdpmsg">Puissance mot de passe : </div><br>
 
-                <progress id="file" max="300" value="0">  </progress><br>
-                
+                <progress id="file" max="300" value="0"> </progress><br>
+
                 <input class="BtnInput" type="submit" value="Inscription">
             </form>
             <div><?php echo $msgAcc;?></div>
         </div>
     </div>
 </body>
+<script src="https://unpkg.com/feather-icons"></script>
+<script src="./vue/utilisateur/js/eyeMdp.js"></script>
+<script>
+    feather.replace();
+</script>
 
 </html>
