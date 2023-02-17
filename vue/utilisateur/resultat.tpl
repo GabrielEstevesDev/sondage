@@ -22,6 +22,7 @@
     <div class="page">
         <a href="./index.php?controle=utilisateur&action=accueil&resaisir=true">
         <button>Refaire le sondage</button></a>
+        <a href="./vue/index.html"  target="_blank"><button id="pdf"> PDF</button></a>
         <div class="wrapper">
             <div class="pie-charts">
                 <div class="pieID--micro-skills pie-chart--wrapper">
