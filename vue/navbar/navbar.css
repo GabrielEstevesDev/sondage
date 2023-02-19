@@ -17,30 +17,20 @@ li, a, i {
   cursor: pointer;
 }
 
-#page {
-  width: 80%;
-  margin: 0 auto;
-  background: white;
-}
-#connected{
-  position: relative;
-}
-#connected {
-  position: relative;
-}
-#deconnexion{
-  bottom: -74px;
-  left: 0;
-  position: absolute;
+
+#disconnected{
   display: none;
 }
-#connected:hover #deconnexion{
 
- display: block;
+
+
+#iprofil{
+  display: inline;
 }
+
 @font-face {
     font-family: "InterB";
-    src: url(./fonts/Inter-Bold.ttf);
+    src: url(../pages/fonts/Inter-Bold.ttf);
   }
   li,a,i{
       list-style-type: none;
@@ -85,7 +75,7 @@ li, a, i {
     }
     #navbar li {
       font-family: "InterB", serif;
-      font-size: 1.3rem !important;
+      font-size: 1.1rem !important;
       font-weight: 600 !important;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -121,7 +111,7 @@ li, a, i {
       #navbar .menu li {
         background: #737373;
         text-align: center;
-        font-size: 0.9rem !important;
+        font-size: 0.8rem !important;
       }
       #navbar .menu a {
         color: black;
@@ -170,15 +160,21 @@ li, a, i {
         padding: 25px 12px;
       }
     }
+    @media screen and (max-width: 1200px) {
+      #navbar .menu .left li {
+        font-size: 0.94rem !important;
+        padding: 25px 12px;
+      }
+    }
     @media screen and (max-width: 1100px) {
       #navbar .menu .left li {
-        font-size: 0.9rem !important;
+        font-size: 0.8rem !important;
         padding: 25px 10px;
       }
     }
     @media screen and (max-width: 1000px) {
       #navbar .menu .left li {
-        font-size: 0.7rem !important;
+        font-size: 0.68rem !important;
         padding: 25px 10px;
       }
     }
@@ -196,6 +192,11 @@ li, a, i {
       #navbar .right li {
         font-size: 1.2rem !important;
         padding: 25px 10px;
+      }
+    }
+    @media screen and (max-width: 1100px) {
+      #navbar .right li {
+        font-size: 1rem !important;
       }
     }
     #navbar .toogle {

@@ -1,18 +1,18 @@
 @font-face {
   font-family: "InterB";
-  src: url(../../../../fonts/Inter-Bold.ttf);
+  src: url(../../../fonts/Inter-Bold.ttf);
 }
 @font-face {
   font-family: "InterL";
-  src: url(../../../../fonts/Inter-Light.ttf);
+  src: url(../../../fonts/Inter-Light.ttf);
 }
 @font-face {
   font-family: "OpenL";
-  src: url(../../../../fonts/OpenSans-Light.ttf);
+  src: url(../../../fonts/OpenSans-Light.ttf);
 }
 @font-face {
   font-family: "MerriI";
-  src: url(../../../../fonts/Merriweather-LightItalic.ttf);
+  src: url(../../../fonts/Merriweather-LightItalic.ttf);
 }
 * {
   margin: 0;
@@ -27,25 +27,27 @@ li {
   list-style: none;
 }
 
-a, a:visited {
+a,
+a:visited {
   text-decoration: none;
 }
 
-li, a, i {
+li,
+a,
+i {
   transition: 0.4s ease-in-out;
   cursor: pointer;
 }
 
 #page {
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto; 
 }
 @media screen and (max-width: 900px) {
   #page {
     width: 90%;
   }
 }
-
 .title {
   font-family: "InterB", serif;
   font-size: 2rem;

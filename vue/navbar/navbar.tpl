@@ -2,30 +2,28 @@
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="./vue/navbar/navbar.css">
+<script src="./vue/navbar/navbar.js"></script>
 <nav id="navbar">
     <div id="logo">
-        <img src="./assets/img/logo beauvaisis.png" alt="Logo Beauvaisis">
+        <img src="./vue/navbar/logo beauvaisis.png" alt="Logo Beauvaisis">
     </div>
     <div class="menu">
         <ul class="left">
             <li><a href="./index.php?action=accueil&controle=pages/accueil">accueil</a></li>
             <li><a href="./index.php?action=actualites&controle=pages/actualites">actualités</a></li>
-            <li><a href="./index.php?action=tourisme&controle=pages/tourisme">tourisme & culture</a></li>
-            <li><a href="./index.php?action=logement&controle=pages/logement">logement & études</a></li>
+            <li><a href="./index.php?action=tourisme&controle=pages/tourisme">tourisme</a></li>
+            <li><a href="./index.php?action=logement&controle=pages/logement">logement</a></li>
             <li><a href="./index.php?action=accueil&controle=utilisateur">sondage</a></li>
             <?php 
             if(isset($_SESSION['login']) && isset($_SESSION['login'])!=NULL)
             echo("<li id='connected'>
-                    <a href='./index.php'>
-                        <i class='fa-regular fa-user'></i>
+                    <a  href='./index.php'>
+                        <i id='iprofil'class='fa-regular fa-user'></i>
                         ".$_SESSION['login']."
                     </a>
-                    <ul>
-                        <li id='deconnexion'>
-                            <a href='./index.php?action=deconnexion&controle=logout'>déconnexion</a>
-                        </li>
-                    </ul>
-                </li>"); 
+                </li>
+               
+                "); 
             else 
             echo("<li><a href='./index.php'>connexion</a></li>");
              ?>
