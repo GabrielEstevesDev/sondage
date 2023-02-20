@@ -4,7 +4,10 @@
         $id = isset($_SESSION['id'])?($_SESSION['id']):NULL;
         $aSaisit = existSondage($id);
         var_dump($aSaisit);
-        if ($aSaisit==false) insertSondage($tabAlim);
+        if ($aSaisit==false){
+            insertSondage($tabAlim);
+            replaceTrigger();
+        } 
         else updateSondage($tabAlim); 
     }
     function insertSondage($tabAlim){
@@ -40,6 +43,10 @@
             header("Location:". $url);
         }
         
+    }
+
+    function replaceTrigger(){
+    
     }
 
     function updateSondage($tabAlim){

@@ -1,32 +1,48 @@
 $().ready(init);
 
 var choix;
-
+var uId;
 function init() {
-	getChoix();
-	afficherChoix();
+  getChoix();
+  afficherChoix();
 }
 
+function getId() {
+  url = "./index.php?controle=utilisateur&action=getId";
+  $.ajax({
+    async: false, //défaut
+    type: "GET",
+    url: url,
+    success: function (retour) {
+      uId = retour;
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      // code à exécuter en cas d'erreur
+      console.error(textStatus, errorThrown);
+    },
+  });
+}
 function getChoix() {
+  getId();
   url = "./modele/recupChoixSQL.php";
   $.ajax({
     async: false, //défaut
     type: "GET",
-    data: {id:"10"},
+    data: { id: uId },
     url: url,
-    dataType : "json",
+    dataType: "json",
     success: function (retour) {
       choix = retour;
     },
-    error: function(jqXHR, textStatus, errorThrown) {
+    error: function (jqXHR, textStatus, errorThrown) {
       // code à exécuter en cas d'erreur
       console.error(textStatus, errorThrown);
-    }
+    },
   });
 }
 
 function afficherChoix() {
-	for(var i = 0; i < 10; i++) {
-		$("p.alim"+(i+1)).text(choix[i]["alim_nom_fr"]);
-	}
+  for (var i = 0; i < 10; i++) {
+    $("p.alim" + (i + 1)).text(choix[i]["alim_nom_fr"]);
+  }
 }

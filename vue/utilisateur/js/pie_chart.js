@@ -1,27 +1,42 @@
 $().ready(init);
 var preferences;
-
+var uId;
 function init() {
   getPref();
   setSpanPoll();
   createPieCharts();
 }
-
+function getId() {
+  url = "./index.php?controle=utilisateur&action=getId";
+  $.ajax({
+    async: false, //défaut
+    type: "GET",
+    url: url,
+    success: function (retour) {
+      uId = retour;
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      // code à exécuter en cas d'erreur
+      console.error(textStatus, errorThrown);
+    },
+  });
+}
 function getPref() {
+  getId();
   url = "./modele/recupSondageSQL.php";
   $.ajax({
     async: false, //défaut
     type: "GET",
-    data: {id:"10"},
+    data: { id: uId },
     url: url,
-    dataType : "json",
+    dataType: "json",
     success: function (retour) {
       preferences = retour;
     },
-    error: function(jqXHR, textStatus, errorThrown) {
+    error: function (jqXHR, textStatus, errorThrown) {
       // code à exécuter en cas d'erreur
       console.error(textStatus, errorThrown);
-    }
+    },
   });
 }
 
@@ -45,12 +60,12 @@ function addSlice(id, sliceSize, pieElement, offset, sliceID, color) {
   var sizeRotation = -179 + sliceSize;
 
   $(id + " ." + sliceID).css({
-    transform: "rotate(" + offset + "deg) translate3d(0,0,0)"
+    transform: "rotate(" + offset + "deg) translate3d(0,0,0)",
   });
 
   $(id + " ." + sliceID + " span").css({
     transform: "rotate(" + sizeRotation + "deg) translate3d(0,0,0)",
-    "background-color": color
+    "background-color": color,
   });
 }
 
@@ -99,7 +114,7 @@ function createPie(id) {
     "purple",
     "turquoise",
     "forestgreen",
-    "crimson"
+    "crimson",
   ];
 
   color = shuffle(color);

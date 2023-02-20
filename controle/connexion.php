@@ -1,8 +1,4 @@
 <?php
- if(!isset($_SESSION)) 
- { 
-     session_start(); 
- } 
    function ident(){
     $login =  isset($_POST['cologin'])?($_POST['cologin']):'';
     $mdp =  isset($_POST['comdp'])?($_POST['comdp']):'';
@@ -10,13 +6,14 @@
     $msgAcc = isset($_SESSION['msgAcc'])?($_SESSION['msgAcc']):'';
 
     if(count($_POST)==0) {
-        require ("./vue/utilisateur/ident.tpl");
+        require ("./vue/connexion/connexion.tpl");
     }
     else {
         require('./modele/utilisateurBD.php');
         if(!verif_ident($login,$mdp)) {
+            var_dump(verif_ident($login,$mdp));
             $msg ="Erreur de saisie OU utilisateur inconnu";
-            require ("./vue/utilisateur/ident.tpl");
+            require ("./vue/connexion/connexion.tpl");
         }
         else { 
             $msg = "Vous êtes connectés";

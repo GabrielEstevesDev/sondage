@@ -23,7 +23,10 @@ function accueil(){
         require("./vue/utilisateur/resultat.tpl");
 
 }
-
+    
 }
 
+function getId(){
+    echo $_SESSION['id'];
+}
 ?>
