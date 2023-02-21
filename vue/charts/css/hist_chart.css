@@ -3,27 +3,15 @@ html {
 }
 
 .wrap {
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
-}
-
-h1 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-  text-align: center;
-  font-size: 1.5em;
-  padding: 0.5em 0;
-  margin-bottom: 1em;
-  border-bottom: 1px solid #dadada;
-  letter-spacing: 3px;
-  text-transform: uppercase;
 }
 
 .bar {
   background: #e74c3c;
   width: 0;
   margin: 0.25em 0;
-  padding-right: 7.5em;
+  padding-right: 8.2em;
   color: #fff;
   position: relative;
   transition: width 2s, background 0.2s;
@@ -33,9 +21,11 @@ h1 {
 .bar:nth-of-type(2n) {
   background: #ed7669;
 }
+
 .bar .label {
   font-size: 0.75em;
   padding: 1em;
+  padding-right: 25px;
   background: #3d3d3d;
   width: 8em;
   display: inline-block;
@@ -43,6 +33,7 @@ h1 {
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
 }
+
 .bar .label.light {
   background: #575757;
 }

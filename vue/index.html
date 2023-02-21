@@ -3,6 +3,7 @@
 
 <head>
     <title>PDF</title>
+    <link rel="stylesheet" type="text/css" href="./utilisateur/css/resultat.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -12,11 +13,25 @@
     <link rel="stylesheet" type="text/css" href="./utilisateur/css/scores.css">
     <script src="./utilisateur/js/print.js"></script>
 
-
     <meta charset="UTF-8">
     <style>
+        .titre {
+            color: black;
+            padding-top: 10px;
+        }
+
+        .div-choix {
+            background: none;
+            width: fit-content;
+        }
+
+        .choix {
+            color: black;
+            display: block;
+        }
+
         .wrapper {
-            min-height: 80vh;
+            min-height: 90vh;
         }
 
         .scoresPdf {
@@ -28,9 +43,9 @@
             margin-right: auto;
         }
 
-        #Titre {
+        .title {
             font-size: 3.5rem;
-            text-align: center;
+            border-bottom: none;
         }
 
         .soustitre {
@@ -52,12 +67,12 @@
 
 <body>
 
-    <h1 id="Titre">Relevé de vos choix</h1>
+    <h1 class="titre title">Relevé de vos choix</h1>
     <div class="page">
         <div class="wrapper">
             <div class="pie-charts">
                 <div class="pieID--micro-skills pie-chart--wrapper">
-                    <h2>Vos préférences alimentaires</h2>
+                    <h2 class="titre">Vos préférences alimentaires</h2>
                     <div class="pie-chart">
                         <div class="pie-chart__pie"></div>
                         <ul class="pie-chart__legend">
@@ -97,7 +112,7 @@
         </div>
 
         <div class="wrap">
-            <h1 class="soustitre">Catégories d'aliments les plus choisies : </h1>
+            <h1 class="soustitre titre">Catégories d'aliments les plus choisies : </h1>
             <div class="holder">
                 <div class="cat1 bar cf" data-percent="0%"><span class="label">Entrées et plats composés</span></div>
                 <div class="cat2 bar cf" data-percent="0%"><span class="label light">Fruits, légumes, légumineuses et

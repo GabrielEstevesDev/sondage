@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="./vue/charts/css/hist_chart.css">
 <script src="./vue/charts/js/hist_chart.js"></script>
 <div class="wrap">
-    <h1>Catégories d'aliments les plus choisies</h1>
+    <h1 class="titre">Catégories d'aliments les plus choisies</h1>
     <div class="holder">
         <div class="cat1 bar cf" data-percent="0%"><span class="label">Entrées et plats composés</span></div>
         <div class="cat2 bar cf" data-percent="0%"><span class="label light">Fruits, légumes, légumineuses et oléagineux</span></div>
