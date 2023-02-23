@@ -1,8 +1,8 @@
 <?php
 	
-	$id = $_GET["id"];
+	$id = $_SESSION["id"];
 
-	require('./connectSQL.php'); //$pdo est défini dans ce fichier
+	require('./modele/connectSQL.php'); //$pdo est défini dans ce fichier
 	$sql="SELECT Aliment1,Aliment2,Aliment3,Aliment4,Aliment5,Aliment6,Aliment7,Aliment8,Aliment9,Aliment10 FROM `sondage` WHERE Administre=:id";
 	try {
 		$commande = $pdo->prepare($sql);
@@ -20,7 +20,7 @@
 	$resultat = array();
 
 	foreach ($choix[0] as $val) {
-		require('./connectSQL.php'); //$pdo est défini dans ce fichier
+		require('./modele/connectSQL.php'); //$pdo est défini dans ce fichier
 		$sql="SELECT alim_nom_fr FROM `aliments` WHERE alim_code=:id";
 		try {
 			$commande = $pdo->prepare($sql);

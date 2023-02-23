@@ -2,22 +2,23 @@
 function envoyer10alim(){
     $id = isset($_SESSION['id'])?($_SESSION['id']):NULL;
     $tab= isset($_POST["array"])?($_POST["array"]):NULL;
-    echo($id);
+    echo("tooo");
     // var_dump($tab);
     // var_dump($tabAlimCode);
     if($id == NULL) { // si l'utilisateur n'est pas connecter on le renvoit sur la page de connexion
+        echo("id null");
         $url = "./?controle=connexion&action=ident";
        header("Location:". $url);
     }
-    else if ($tab == NULL){ // si le formulaire n'est pas saisit on renvoit sur la page de saisis
+    else if ($tab == NULL){
         $url = "./?controle=aliment&action=accueil";
         header("Location:". $url);
     }
     else{
     require("./modele/envoyerAlim.php");
     envoyerSondage($tab); // on insert la ligne dans sondage 
-    $url = "./?controle=utilisateur&action=accueil";
-    header("Location:". $url);
+    // $url = "./?controle=utilisateur&action=accueil";
+    // header("Location:". $url);
 }
 }
 

@@ -7,8 +7,12 @@
         if ($aSaisit==false){
             insertSondage($tabAlim);
             replaceTrigger();
+
         } 
-        else updateSondage($tabAlim); 
+        else {
+            updateSondage($tabAlim);
+            replaceTrigger();
+         }
     }
     function insertSondage($tabAlim){
         $id = isset($_SESSION['id'])?($_SESSION['id']):NULL;
@@ -39,14 +43,24 @@
 		}
         if ($bool) {
             $resultat = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
-            $url = "./?controle=utilisateur&action=accueil";
-            header("Location:". $url);
+            
         }
         
     }
 
     function replaceTrigger(){
-    
+        require("./modele/connectSQL.php");
+        $sql="CALL NutriScoreMoyen(:idA)";
+		try {
+			$commande = $pdo->prepare($sql);
+			$commande->bindParam(':idA', $_SESSION['id']);
+			$bool = $commande->execute();
+		
+		}
+		catch (PDOException $e) {
+			echo utf8_encode("Echec de l'appel de la procédure : " . $e->getMessage() . "\n");
+			die(); // On arrête tout.
+		}
     }
 
     function updateSondage($tabAlim){
@@ -79,8 +93,6 @@
         if ($bool) {
             $resultat = $commande->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
             echo("fin update avant redirection");
-            // $url = "./?controle=utilisateur&action=accueil";
-            // header("Location:". $url);
         }
         
     }

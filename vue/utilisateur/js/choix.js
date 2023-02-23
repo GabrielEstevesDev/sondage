@@ -7,28 +7,11 @@ function init() {
   afficherChoix();
 }
 
-function getId() {
-  url = "./index.php?controle=utilisateur&action=getId";
-  $.ajax({
-    async: false, //défaut
-    type: "GET",
-    url: url,
-    success: function (retour) {
-      uId = retour;
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      // code à exécuter en cas d'erreur
-      console.error(textStatus, errorThrown);
-    },
-  });
-}
 function getChoix() {
-  getId();
-  url = "./modele/recupChoixSQL.php";
+  url = "./index.php?controle=utilisateur&action=recupChoix";
   $.ajax({
     async: false, //défaut
     type: "GET",
-    data: { id: uId },
     url: url,
     dataType: "json",
     success: function (retour) {

@@ -7,31 +7,16 @@ function init() {
   getScores();
   afficherScores();
 }
-function getId() {
-  url = "./index.php?controle=utilisateur&action=getId";
-  $.ajax({
-    async: false, //défaut
-    type: "GET",
-    url: url,
-    success: function (retour) {
-      uId = retour;
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      // code à exécuter en cas d'erreur
-      console.error(textStatus, errorThrown);
-    },
-  });
-}
+
 function getScores() {
-  getId();
-  url = "./modele/recupScoresSQL.php";
+  url = "./index.php?controle=utilisateur&action=getScore";
   $.ajax({
     async: false, //défaut
     type: "GET",
-    data: { id: uId },
     url: url,
     dataType: "json",
     success: function (retour) {
+      console.log(retour);
       nutriscore = retour["nutriscore"];
       scoresante = retour["scoresante"];
     },

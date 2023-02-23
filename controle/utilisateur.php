@@ -25,8 +25,16 @@ function accueil(){
 }
     
 }
-
+function getScore(){
+    require("./modele/recupScoresSQL.php");
+}
+function recupSondage(){
+    require("./modele/recupSondageSQL.php");
+}
 function getId(){
     echo $_SESSION['id'];
+}
+function recupChoix(){
+    require("./modele/recupChoixSQL.php");
 }
 ?>

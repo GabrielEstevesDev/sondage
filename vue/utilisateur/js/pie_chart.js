@@ -23,11 +23,10 @@ function getId() {
 }
 function getPref() {
   getId();
-  url = "./modele/recupSondageSQL.php";
+  url = "./index.php?controle=utilisateur&action=recupSondage";
   $.ajax({
     async: false, //défaut
     type: "GET",
-    data: { id: uId },
     url: url,
     dataType: "json",
     success: function (retour) {

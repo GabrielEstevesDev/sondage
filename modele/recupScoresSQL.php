@@ -1,8 +1,8 @@
 <?php
 
-	$id = $_GET['id'];
+	$id = $_SESSION['id'];
 
-	require('connectSQL.php');
+	require('./modele/connectSQL.php');
 		$sql="SELECT NutriScore,ScoreSante FROM `sondage` WHERE Administre=:id";
 		try {
 			$commande = $pdo->prepare($sql);
