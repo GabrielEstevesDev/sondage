@@ -7,50 +7,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="./vue/utilisateur/css/resultat.css">
-    <link rel="stylesheet" href="./vue/utilisateur/css/hist_chart.css">
-    <script src="./vue/utilisateur/js/hist_chart.js"></script>
+    
 
-    <link rel="stylesheet" href="./vue/utilisateur/css/pie_chart.css">
-    <script src="./vue/utilisateur/js/pie_chart.js"></script>
 </head>
 
 <body>
     <header>
         <?php require("./vue/navbar/navbar.tpl"); ?>
     </header>
-    <div class="page">
-        <a href="./index.php?controle=utilisateur&action=accueil&resaisir=true">
+    <a href="./index.php?controle=utilisateur&action=accueil&resaisir=true">
         <button>Refaire le sondage</button></a>
-        <a href="./vue/index.html"  target="_blank"><button id="pdf"> PDF</button></a>
-        <div class="blur">
-            <section>
-                <div class="wrapper">
-                <div class="pie-charts">
-                    <div class="pieID--micro-skills pie-chart--wrapper">
-                        <h2 class="titre">Vos préférences alimentaires</h2>
-                        <div class="pie-chart">
-                            <div class="pie-chart__pie"></div>
-                            <ul class="pie-chart__legend">
-                                <li><em class="prefem bio">Bio</em><span class="prefspan bio">0</span></li>
-                                <li><em class="prefem casher">Casher</em><span class="prefspan casher">0</span></li>
-                                <li><em class="prefem halal">Halal</em><span class="prefspan halal">0</span></li>
-                                <li><em class="prefem vegan">Vegan</em><span class="prefspan vegan">0</span></li>
-                                <li><em class="prefem autres">Autres</em><span class="prefspan autres">0</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <?php require("./vue/utilisateur/choix.tpl"); ?>
-                <?php require("./vue/utilisateur/scores.tpl"); ?>
-            </section>
-            <section>
-                <?php require("./vue/charts/hist_chart.tpl"); ?>
-            </section>
-        </div>
-    </div>
+        <a href="./index.php?action=pdf&controle=pages/pdf"  ><button id="pdf"> PDF</button></a>
+        <?php require("./vue/utilisateur/page.tpl"); ?>
+
 </body>
 
 </html>

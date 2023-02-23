@@ -1,0 +1,49 @@
+.titre {
+    color: black;
+    padding-top: 0;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.div-choix {
+    background: none;
+    width: fit-content;
+}
+
+.choix {
+    color: black;
+    display: block;
+}
+
+.wrapper {
+    min-height: 90vh;
+}
+
+.scoresPdf {
+    min-height: 50vh;
+}
+
+.holder {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    font-size: 3.5rem;
+    border-bottom: none;
+}
+
+.soustitre {
+    font-size: 2rem;
+}
+
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        /* Chrome, Safari 6 – 15.3, Edge */
+        color-adjust: exact !important;
+        /* Firefox 48 – 96 */
+        print-color-adjust: exact !important;
+        /* Firefox 97+, Safari 15.4+ */
+    }
+}

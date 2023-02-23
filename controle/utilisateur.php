@@ -31,8 +31,8 @@ function getScore(){
 function recupSondage(){
     require("./modele/recupSondageSQL.php");
 }
-function getId(){
-    echo $_SESSION['id'];
+function getNom(){
+    echo  $_SESSION['login'];
 }
 function recupChoix(){
     require("./modele/recupChoixSQL.php");
