@@ -17,7 +17,7 @@
     </header>
     <a href="./index.php?controle=utilisateur&action=accueil&resaisir=true">
         <button>Refaire le sondage</button></a>
-        <a href="./index.php?action=pdf&controle=pages/pdf"  ><button id="pdf"> PDF</button></a>
+        <a href="./index.php?action=pdf&controle=pages/pdf" target="_blank"  ><button id="pdf"> PDF</button></a>
         <?php require("./vue/utilisateur/page.tpl"); ?>
 
 </body>
