@@ -16,7 +16,6 @@ function getScores() {
     url: url,
     dataType: "json",
     success: function (retour) {
-      console.log(retour);
       nutriscore = retour["nutriscore"];
       scoresante = retour["scoresante"];
     },

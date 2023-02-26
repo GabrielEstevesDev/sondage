@@ -25,7 +25,7 @@
                
                 "); 
             else 
-            echo("<li><a href='./index.php'>connexion</a></li>");
+            echo("<li><a href='./index.php'>compte</a></li>");
              ?>
         </ul>
         <ul class="right">

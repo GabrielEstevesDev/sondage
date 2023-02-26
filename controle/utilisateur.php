@@ -26,15 +26,22 @@ function accueil(){
     
 }
 function getScore(){
-    require("./modele/recupScoresSQL.php");
+    require("./modele/SondageBD.php");
+    MrecupScores();
 }
 function recupSondage(){
-    require("./modele/recupSondageSQL.php");
+    require("./modele/SondageBD.php");
+    MrecupSondage();
 }
 function getNom(){
     echo  $_SESSION['login'];
 }
 function recupChoix(){
-    require("./modele/recupChoixSQL.php");
+    require("./modele/SondageBD.php");
+    MrecupChoix();
+}
+function recupCategories(){
+    require("./modele/SondageBD.php");
+    MrecupCategories();
 }
 ?>

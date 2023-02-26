@@ -9,6 +9,13 @@
   margin: 0 auto;
   
 }
+#navbar .menu .left li:last-child {
+  background: white;
+}
+
+#navbar .menu .left li:last-child a {
+  color: black;
+}
 .form{
     width: 80%;
     margin: 80px auto;

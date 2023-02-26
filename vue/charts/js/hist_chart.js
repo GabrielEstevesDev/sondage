@@ -12,7 +12,7 @@ function init() {
 }
 
 function getCategories() {
-  url = "./modele/recupCategoriesSQL.php";
+  url = "./index.php?controle=utilisateur&action=recupCategories";
   $.ajax({
     async: false, //défaut
     type: "GET",

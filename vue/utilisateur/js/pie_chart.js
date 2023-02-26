@@ -6,23 +6,8 @@ function init() {
   setSpanPoll();
   createPieCharts();
 }
-function getId() {
-  url = "./index.php?controle=utilisateur&action=getId";
-  $.ajax({
-    async: false, //défaut
-    type: "GET",
-    url: url,
-    success: function (retour) {
-      uId = retour;
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      // code à exécuter en cas d'erreur
-      console.error(textStatus, errorThrown);
-    },
-  });
-}
+
 function getPref() {
-  getId();
   url = "./index.php?controle=utilisateur&action=recupSondage";
   $.ajax({
     async: false, //défaut

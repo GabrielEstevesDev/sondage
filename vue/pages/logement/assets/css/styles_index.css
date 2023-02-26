@@ -1,10 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
 body {
 	background-image: url("../src/background.png");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
-
+#navbar .menu .left li:nth-child(4) {
+    background: white;
+}
+#navbar .menu .left li:nth-child(4) a {
+    color: black;
+ }
 @font-face {
 	font-family: 'Open Sans Light';
 	font-style: normal;
@@ -21,10 +33,7 @@ body {
 	background-color: white;
 }
 
-*{
-	margin: 0;
-	padding: 0;
-}
+
 
 div.education div.divCreches, div.div_maternelle {
 	display: inline-block;
@@ -370,9 +379,3 @@ div.education div.divCreches, div.div_maternelle {
 	}
 }
 
- #navbar .menu .left li:last-child {
-    background: white;
-  }
-  #navbar .menu .left li:last-child a {
-    color: black;
-  } 

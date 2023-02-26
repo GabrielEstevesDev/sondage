@@ -8,6 +8,7 @@
 </head>
 
 <body onload="init();">
+    <header></header>
     <div id="site">
         <?php  require("./vue/navbar/navbar.tpl"); ?>
         <div id="title">
