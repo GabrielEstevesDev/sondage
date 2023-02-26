@@ -8,17 +8,16 @@
 </head>
 
 <body onload="init();">
-    <header></header>
+<header></header>
     <div id="site">
         <?php  require("./vue/navbar/navbar.tpl"); ?>
-        <div id="title">
-            <h1>Les Actualités</h1>
-        </div>
+            
         <div id="page">
             <section id="envol">
-                <h3 class="title">L'association Envol a inauguré son centre de soin</h3>
+            <h1 class="Titre">Les Actualités</h1>
+                <h2 class="SousTitre">L'association Envol a inauguré son centre de soin</h2>
                 <p class="date">13 juillet 2022</p>
-                <div class="Parent">
+                <div class="IMG">
                     <img src="./vue/pages/actualites/assets/img/association_envol.jpg" class="img">
                 </div>
                 <div class="Contenu">
@@ -56,10 +55,9 @@
                 </div>
             </section>
             <section id="transport">
-                <hr>
-                <h3 class="title">Inscriptions aux transports scolaires pour 2022/2023</h3>
+                <h2 class="SousTitre">Inscriptions aux transports scolaires pour 2022/2023</h2>
                 <p class="date">22 juin 2022</p>
-                <div class="Parent">
+                <div class="IMG">
                     <img src="./vue/pages/actualites/assets/img/transport_scolaire.jpg" class="img">
                 </div>
                 <div class="Contenu">
@@ -89,17 +87,16 @@
                     </p>
                     <p class="readMore">
                         <a
-                            href="https://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/l-association-envol-a-inaugure-son-centre-de-soins.html">
+                            href="http://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/inscriptions-aux-transports-scolaires-pour-2022-2023.html">
                             LIRE LA SUITE...
                         </a>
                     </p>
                 </div>
             </section>
             <section>
-                <hr>
-                <h3 class="title">Sur le terrain pour sensibiliser à la réduction des déchets</h3>
+                <h2 class="SousTitre">Sur le terrain pour sensibiliser à la réduction des déchets</h2>
                 <p class="date">16 mai 2022</p>
-                <div class="Parent">
+                <div class="IMG">
                     <img src="./vue/pages/actualites/assets/img/dechets.jpeg" class="img">
                 </div>
                 <div class="Contenu">
@@ -128,17 +125,16 @@
                         </p>
                         <p class="readMore">
                             <a
-                                href="https://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/l-association-envol-a-inaugure-son-centre-de-soins.html">
+                                href="http://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/sur-le-terrain-pour-sensibiliser-a-la-reduction-des-dechets.html">
                                 LIRE LA SUITE...
                             </a>
                         </p>
                 </div>
             </section>
             <section>
-                <hr>
-                <h3 class="title">20ème édition de la Fête de la fleur et des jardiniers à Aux-Marais</h3>
+                <h2 class="SousTitre">20ème édition de la Fête de la fleur et des jardiniers à Aux-Marais</h2>
                 <p class="date">4 mai 2022</p>
-                <div class="Parent">
+                <div class="IMG">
                     <img src="./vue/pages/actualites/assets/img/jardin.jpeg" class="img">
                 </div>
                 <div class="Contenu">
@@ -157,18 +153,17 @@
                     </p>
                     <p class="readMore">
                         <a
-                            href="https://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/l-association-envol-a-inaugure-son-centre-de-soins.html">
+                            href="http://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/20eme-edition-de-la-fete-de-la-fleur-et-des-jardiniers-a-aux-marais.html">
                             LIRE LA SUITE...
                         </a>
                     </p>
                 </div>
             </section>
             <section>
-                <hr>
-                <h3 class="title">Réouverture le 1er avril de la Maladrerie Saint-Lazare à Beauvais en visite libre ou
-                    commentée</h3>
+                <h2 class="SousTitre">Réouverture le 1er avril de la Maladrerie Saint-Lazare à Beauvais en visite libre ou
+                    commentée</h2>
                 <p class="date">30 mars 2022</p>
-                <div class="Parent">
+                <div class="IMG">
                     <img src="./vue/pages/actualites/assets/img/maladrerie.jpg" class="img">
                 </div>
                 <div class="Contenu">
@@ -189,17 +184,16 @@
                     </p>
                     <p class="readMore">
                         <a
-                            href="https://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/l-association-envol-a-inaugure-son-centre-de-soins.html">
+                            href="http://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/reouverture-le-1er-avril-de-la-maladrerie-saint-lazare-a-beauvais-en-visite-libre-ou-commentee.html">
                             LIRE LA SUITE...
                         </a>
                     </p>
                 </div>
             </section>
             <section>
-                <hr>
-                <h3 class="title">Les médiathèques vous invitent à la lecture</h3>
+                <h2 class="SousTitre">Les médiathèques vous invitent à la lecture</h2>
                 <p class="date">28 février 2022</p>
-                <div class="Parent">
+                <div class="IMG">
                     <img src="./vue/pages/actualites/assets/img/livres.jpg" class="img">
                 </div>
                 <div class="Contenu">
@@ -220,17 +214,16 @@
                         </p>
                         <p class="readMore">
                             <a
-                                href="https://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/l-association-envol-a-inaugure-son-centre-de-soins.html">
+                                href="http://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/les-mediatheques-vous-invitent-a-la-lecture.html">
                                 LIRE LA SUITE...
                             </a>
                         </p>
                 </div>
             </section>
             <section>
-                <hr>
-                <h3 class="title">39ème balade en forêt de Hez-Froidmont - Dimanche 6 mars 2022</h3>
+                <h2 class="SousTitre">39ème balade en forêt de Hez-Froidmont - Dimanche 6 mars 2022</h2>
                 <p class="date">21 février 2022</p>
-                <div class="Parent">
+                <div class="IMG">
                     <img src="./vue/pages/actualites/assets/img/foret.jpg" class="img">
                 </div>
                 <div class="Contenu">
@@ -249,17 +242,16 @@
                     </p>
                     <p class="readMore">
                         <a
-                            href="https://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/l-association-envol-a-inaugure-son-centre-de-soins.html">
+                            href="http://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/39eme-balade-en-foret-de-hez-froidmont-dimanche-6-mars-2022.html">
                             LIRE LA SUITE...
                         </a>
                     </p>
                 </div>
             </section>
             <section>
-                <hr>
-                <h3 class="title">Préservation de la faune : Résultats de l’étude sur le Grand murin</h3>
+                <h2 class="SousTitre">Préservation de la faune : Résultats de l’étude sur le Grand murin</h2>
                 <p class="date">24 novembre 2021</p>
-                <div class="Parent">
+                <div class="IMG">
                     <img src="./vue/pages/actualites/assets/img/chauve_souris.jpg" class="img">
                 </div>
                 <div class="Contenu">
@@ -275,17 +267,16 @@
                     </p>
                     <p class="readMore">
                         <a
-                            href="https://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/l-association-envol-a-inaugure-son-centre-de-soins.html">
+                            href="http://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/preservation-de-la-faune-resultats-de-l-etude-sur-le-grand-murin.html">
                             LIRE LA SUITE...
                         </a>
                     </p>
                 </div>
             </section>
             <section>
-                <hr>
-                <h3 class="title">2ème édition du festival de BD de Bresles : La Halle aux Bulles</h3>
+                <h2 class="SousTitre">2ème édition du festival de BD de Bresles : La Halle aux Bulles</h2>
                 <p class="date">6 septembre 2021</p>
-                <div class="Parent">
+                <div class="IMG">
                     <img src="./vue/pages/actualites/assets/img/bd.png" class="img">
                 </div>
                 <div class="Contenu">
@@ -309,17 +300,16 @@
                     </p>
                     <p class="readMore">
                         <a
-                            href="https://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/l-association-envol-a-inaugure-son-centre-de-soins.html">
+                            href="http://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/2eme-edition-du-festival-de-bd-de-bresles-la-halle-aux-bulles.html">
                             LIRE LA SUITE...
                         </a>
                     </p>
                 </div>
             </section>
             <section>
-                <hr>
-                <h3 class="title">Des abeilles et des moutons dans les stations d'épuration</h3>
+                <h2 class="SousTitre">Des abeilles et des moutons dans les stations d'épuration</h2>
                 <p class="date">20 juillet 2021</p>
-                <div class="Parent">
+                <div class="IMG">
                     <img src="./vue/pages/actualites/assets/img/moutons.jpg" class="img">
                 </div>
                 <div class="Contenu">
@@ -347,13 +337,12 @@
                         </p>
                         <p class="readMore">
                             <a
-                                href="https://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/l-association-envol-a-inaugure-son-centre-de-soins.html">
+                                href="http://www.beauvaisis.fr/actualites/actualites-du-beauvaisis/des-abeilles-et-des-moutons-dans-les-stations-d-epuration.html">
                                 LIRE LA SUITE...
                             </a>
                         </p>
                 </div>
             </section>
-            <button onclick="displayMore();">Afficher plus</button>
         </div>
     </div>
 </body>
