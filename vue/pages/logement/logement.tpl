@@ -12,10 +12,10 @@
 </head>
 
 <body>
-	<div class="page">
+	<header>
 		<?php  require("./vue/navbar/navbar.tpl"); ?>
-
-
+	</header>
+	<div class="page">
 		<div class="education">
 			<p class="titre_edu">L'EDUCATION DANS</br>NOTRE AGGLOMERATION</p>
 

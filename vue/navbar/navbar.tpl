@@ -2,7 +2,7 @@
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="./vue/navbar/navbar.css">
-<script src="./vue/navbar/navbar.js"></script>
+<script src="./vue/navbar/autresNav.js"></script>
 <nav id="navbar">
     <div id="logo">
         <img src="./vue/navbar/logo beauvaisis.png" alt="Logo Beauvaisis">

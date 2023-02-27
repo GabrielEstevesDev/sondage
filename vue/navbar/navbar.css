@@ -45,13 +45,13 @@ li, a, i {
       padding: 0 !important;
       margin: 0 !important;
   }
-  
+
   #navbar {
       z-index: 1000;
       font-family: "InterB", serif;
-      background: rgba(66, 66, 66, 0.322);
       width: 80%;
       margin: 0 auto;
+      background: rgba(66, 66, 66, 0.322);
       display: flex;
       align-items: center;
       justify-content: space-between;

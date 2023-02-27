@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LA COMMUNAUTÉ D'AGGLOMÉRATION DU BEAUVAISIS - ACCUEIL</title>
     <link rel="stylesheet" href="./vue/pages/accueil/assets/styles/index.css">
+    <script src="./vue/navbar/navbar.js"></script>
 </head>
 
 <body>

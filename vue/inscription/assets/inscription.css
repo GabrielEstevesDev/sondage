@@ -126,12 +126,33 @@ transform: scale(1.05);
 #connexion:hover{
   text-decoration: underline;
 }
-@media screen and (max-width: 600px) {
-  input{
-      width: 80%;
+@media screen and (max-width: 900px) {
+  #page{
+    width: 90%;
   }
-  .Titre{
-      font-size: 1rem;
+  .form{
+    margin: 70px auto 70px auto;
+    width: 100%;
+  }
+  input{
+    margin-bottom: 6px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .form{
+    padding: 60px;
+     
+  }
+}
+@media screen and (max-width: 600px) {
+ 
+  input{
+    width: 240px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .form{
+    padding: 40px;
   }
 }
 
