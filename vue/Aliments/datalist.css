@@ -1,49 +1,164 @@
-fieldset {
-  border: 1px solid blue;
-  width: 360px;
-  border-radius: 5px;
+* {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
 }
 
-legend, label{
-  color: blue; 
+#page {
+  margin-bottom: 50px;
+}
+
+.titre {
+  padding-top: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5em;
+  padding: 0.5em 0;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #e4e4e4;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.blur {
+  margin-top: 20px;
+  min-width: 70%;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 20px;
+  padding-bottom: 40px;
+  background: rgb(143, 138, 138,0.4);
+    box-shadow: 3px -2px 25px 1px rgba(0,0,0,0.63);
+    -webkit-box-shadow: 3px -2px 25px 1px rgba(0,0,0,0.63);
+    -moz-box-shadow: 3px -2px 25px 1px rgba(0,0,0,0.63);
+}
+
+.listealim {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  padding: 10px 20px;
+}
+
+form {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
+fieldset {
+  width: 400px;
+  border: none;
+}
+
+label { 
   font-size: 24px;
-  font-family: sans-serif;
+  font-weight: bold;
 }
 
 input {
+  margin-top: 10px;
   font-size: 18px;
   padding: 5px;
   height: 35px;
   width: 350px;
-  border: 1px solid blue;
+  border: 1px solid #008CBA;
   outline: none;
   border-radius: 5px;
-  color: blue;
-/*   border-bottom: none; */
 }
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.ajout {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.ajout:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.envoi {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.envoi:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.supprimer {
+  padding: 2px;
+  margin: 1px;
+  border-radius: 3px;
+  background-color: white; 
+  color: black; 
+  border: 1px solid #f44336;
+}
+
+.supprimer:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 12px;
+}
+
 datalist {
-  position: absolute;
   background-color: white;
   border: 1px solid blue;
   border-radius: 0 0 5px 5px;
   border-top: none;
-  font-family: sans-serif;
   width: 350px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 5px;
   max-height: 10rem;
-  overflow-y: auto
-  
+  overflow-y: auto;
+  text-align: left;
 }
 
 option {
   background-color: white;
   padding: 4px;
-  color: blue;
   margin-bottom: 1px;
-   font-size: 18px;
+  font-size: 18px;
   cursor: pointer;
 }
 
-option:hover,  .active{
+option:hover, .active{
   background-color: lightblue;
+}
+
+#choisir {
+  margin: 10px 10px;
+}
+
+section {
+  padding: 40px;
 }

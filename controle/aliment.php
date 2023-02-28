@@ -2,13 +2,11 @@
 function envoyer10alim(){
     $id = isset($_SESSION['id'])?($_SESSION['id']):NULL;
     $tab= isset($_POST["array"])?($_POST["array"]):NULL;
-    echo("tooo");
     // var_dump($tab);
     // var_dump($tabAlimCode);
     if($id == NULL) { // si l'utilisateur n'est pas connecter on le renvoit sur la page de connexion
-        echo("id null");
         $url = "./?controle=connexion&action=ident";
-       header("Location:". $url);
+        header("Location:". $url);
     }
     else if ($tab == NULL){
         $url = "./?controle=aliment&action=accueil";

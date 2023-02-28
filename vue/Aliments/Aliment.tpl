@@ -19,52 +19,44 @@
 <body id="body">
     <?php require("./vue/navbar/navbar.tpl"); ?>
     <div id="page">
-        <form>
-            <input type=button name=print value="Print" onClick="window.print()">
-        </form>
-        <form>
-            <fieldset>
-                <legend>
-                    Datalist Form
-                </legend>
-                <label>Select Browser</label>
-                <input autocomplete="off" role="combobox" list="" id="input" name="browsers"
-                placeholder="Select your fav browser">
-                <!-- Its important that you keep list attribute empty to hide the default dropdown icon and the browser's default datalist -->
+        <div class="blur">
+            <div class="listealim">
+                <form>
+                    <fieldset>
+                        <label>Aliments</label>
+                        <input autocomplete="off" role="combobox" list="" id="input" name="browsers"
+                        placeholder="Choisissez vos aliments">
 
-                <datalist id="browsers" role="listbox">
-                    <?php 
-                        foreach($resultat as $value){
-                            echo ("<option id=$value[alim_code] value=$value[alim_nom_fr]>$value[alim_nom_fr]</option>");
-                        }
-                    ?>
-                </datalist>
-                <!--     <br>
-                <br>
-                <label for="pwd"> Password </label>
-                <input id="pwd" type="password">
-            -->
-        </fieldset>
-        <input id="submit" type="submit" value="">
-    </form>
-    <button id="choisir">Choisir</button>
-    <div id="aliments">
-        <table>
-            <thead>
-                <tr>
-                    <th>Numéro</th>
-                    <th>Nom</th>
-                    <th>Supprimer</th>
-                </tr>
-            </thead>
-            <tbody id="insert">
-            </tbody>
-        </table>
+                        <datalist id="browsers" role="listbox">
+                            <?php 
+                                foreach($resultat as $value){
+                                    echo ("<option id=$value[alim_code] value=$value[alim_nom_fr]>$value[alim_nom_fr]</option>");
+                                }
+                            ?>
+                        </datalist>
+                    </fieldset>
+                    <input id="submit" type="submit" value="">
+                </form>
+                <button id="choisir" class="button ajout">Ajouter</button>
+                <div id="aliments">
+                    <table>
+                        <thead id="names">
+                            <tr>
+                                <th>N°</th>
+                                <th>Nom</th>
+                                <th>Supprimer</th>
+                            </tr>
+                        </thead>
+                        <tbody id="insert">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <section>
+                <?php require("./vue/charts/hist_chart.tpl"); ?>
+            </section>
+        </div>
     </div>
-    <?php require("./vue/charts/hist_chart.tpl"); ?>
-</div>
 </body>
 <script src="./vue/Aliments/js/datalist.js"></script>
-<!-- <script src="./vue/Aliments/js/pdf.js"></script> -->
-
 </html>

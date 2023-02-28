@@ -56,7 +56,7 @@ function anim() {
       $(this).append('<span class="count"></span>');
       setTimeout(function () {
         var val = parseInt($bar.attr("data-percent"));
-        if (maxi >= 75) val = val * 0.75;
+        if (maxi >= 75) val = val * 1;
         else if (maxi >= 50 && maxi < 75) val = val * 1.5;
         else if (maxi >= 20 && maxi < 50) val = val * 2;
         else val = val * 2.5;

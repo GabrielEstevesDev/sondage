@@ -42,10 +42,11 @@
 				}
 			echo(json_encode($res));
 	}
+
 	function MrecupSondage(){
 		$id = $_SESSION['id'];
 
-	require('./modele/connectSQL.php'); //$pdo est défini dans ce fichier
+		require('./modele/connectSQL.php'); //$pdo est défini dans ce fichier
 		$sql="SELECT Aliment1,Aliment2,Aliment3,Aliment4,Aliment5,Aliment6,Aliment7,Aliment8,Aliment9,Aliment10 FROM `sondage` WHERE Administre=:id";
 		try {
 			$commande = $pdo->prepare($sql);
@@ -64,7 +65,6 @@
 		//var_dump($resultat);
 
 		$res = array();
-
 		foreach ($resultat[0] as $val) {
 			$sql="SELECT getPreference(:alim_code)";
 			try {
@@ -79,7 +79,7 @@
 				echo "Echec de select";
 				die(); // On arrête tout.
 			}
-
+			//var_dump($preferences[0]);
 			array_push($res, $preferences[0]["getPreference('" . $val . "')"]);
 			//var_dump($preferences[0]["getPreference('" . $val . "')"]);
 		}

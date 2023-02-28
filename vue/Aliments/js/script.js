@@ -1,6 +1,7 @@
 window.addEventListener("load", init);
 var lastObjAlim;
 var tabAlim;
+var tableNames;
 function init() {
   tabAlim = new Array();
   var inputSubmit = document.getElementById("submit");
@@ -16,6 +17,8 @@ function init() {
       input.value = option.textContent;
     };
   }
+  tableNames = document.getElementById("names");
+  tableNames.style.display = "none";
 }
 
 function fermerListe(e) {
@@ -28,14 +31,17 @@ function ajoutAlim(e) {
   var input = document.getElementById("input");
   if (input.value.length != 0) {
     tabAlim.push(lastObjAlim);
+    tableNames.style.display = "table-header-group";
     afficherAlimChoisi();
     if (tabAlim.length == 10) {
       buttonChoisir.removeEventListener("click", ajoutAlim);
+      buttonChoisir.classList.remove("ajout");
+      buttonChoisir.classList.add("envoi");
       buttonChoisir.innerHTML = "ENVOYER";
       buttonChoisir.addEventListener("click", envoyerAliments);
+      
     }
   }
-  console.log(tabAlim);
 }
 
 function afficherAlimChoisi() {
@@ -44,13 +50,13 @@ function afficherAlimChoisi() {
     var number = i + 1;
     insert.innerHTML =
       insert.innerHTML +
-      "<tr> <td>" +
+      "<tr><td>" +
       number +
       "</td><td>" +
       choix["nom"] +
       "</td><td><button id=" +
       i +
-      " class=supOption>Supprimer</button></td> </tr>";
+      " class='supOption button supprimer'>Supprimer</button></td></tr>";
   }
   for (let choix of document.getElementsByClassName("supOption")) {
     choix.addEventListener("click", supChoix);
@@ -58,6 +64,9 @@ function afficherAlimChoisi() {
 }
 
 function supChoix(e) {
+  if(tabAlim.length == 1) {
+    tableNames.style.display = "none";
+  }
   var index = e.target.id;
   if (index > -1) {
     tabAlim.splice(index, 1);
@@ -65,10 +74,14 @@ function supChoix(e) {
   afficherAlimChoisi();
   var buttonChoisir = document.getElementById("choisir");
   if (tabAlim.length < 10) {
-    buttonChoisir.innerHTML = "choisir";
+    buttonChoisir.innerHTML = "Ajouter";
+    buttonChoisir.removeEventListener("click", envoyerAliments);
     buttonChoisir.addEventListener("click", ajoutAlim);
+    buttonChoisir.classList.add("ajout");
+    buttonChoisir.classList.remove("envoi");
   }
 }
+
 function envoyerAliments() {
   // data = { array: arrayAlim, controle: "aliment", action: "envoyer10alim" };
   data = { array: tabAlim };
